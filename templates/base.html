@@ -7,6 +7,22 @@
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
+    <ul class="nav justify-content-center">
+        <li class="nav-item">
+          <a class="nav-link" href="/register">Register</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/login">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/feedback">Provide Feedback</a>
+        </li>
+        <li class="nav-item">
+            <form action="/logout" method="POST">
+                <button class="btn btn-link" style="text-decoration: none;">Logout</button>
+            </form>
+        </li>
+      </ul>
     <div class="container" style="margin-top: 2em">
         {% for category, msg in get_flashed_messages(with_categories=True) %}
             <div class="alert alert-{{category}}" >{{ msg }}</div>

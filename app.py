@@ -76,3 +76,11 @@ def show_secrets():
         return redirect('/login')
     else:
         return render_template('secrets.html')
+
+@app.route('/logout', methods=['POST'])
+def logout_user():
+    """log our user and flashes message"""
+    user = db.session.get(User, session.get('username'))
+    flash(f"Goodbye {user.first_name}, thanks for visiting!", "info")
+    session.pop('username')
+    return redirect('/')
